@@ -3,7 +3,7 @@
 """Provides loan management features."""
 
 import decimal
-
+import math
 
 def main():
     pstr = raw_input('what is the amount of your principal?: ')
@@ -91,4 +91,6 @@ def calculate_interest(principal=0.0, duration=0.0, prequalification=False, inte
     total = compound_interest(principal, duration, rate)
     if total is None:
         return None
-    return int(total - principal)
+    interest = total - principal
+    interest = int(math.ceil(interest))
+    return interest
