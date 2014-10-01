@@ -80,9 +80,9 @@ def calculate_total(principal=0.0, duration=0.0, prequalification=False, interva
     duration = int(duration)
     rate = get_interest_rate(principal, duration, prequalification)
     if rate is None:
-        return None
+        return rate
     total = compound_interest(principal, duration, rate)
-    return int(total)
+    return int(math.ceil(total))
 
 def calculate_interest(principal=0.0, duration=0.0, prequalification=False, interval=12):
     rate = get_interest_rate(principal, duration, prequalification)
